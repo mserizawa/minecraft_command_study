@@ -33,11 +33,6 @@ export function QuizScreen({ onBack }: Props) {
       {/* 上部バー */}
       <div className="relative z-10 w-full">
         <div className="h-2 bg-[#5a8a3c] shadow-[0_2px_0_#2a4a1c]" />
-        <div className="flex items-center px-4 py-3">
-          <button className="mc-button px-4 py-3" onClick={onBack}>
-            <span className="font-minecraft text-[#eeeeee] text-[11px]">おしまい</span>
-          </button>
-        </div>
       </div>
 
       {/* メインコンテンツ */}
@@ -94,7 +89,7 @@ export function QuizScreen({ onBack }: Props) {
                     {choice.command}
                   </span>
                   {phase === 'revealed' && !choice.isCorrect && (
-                    <span className="font-minecraft text-[13px] leading-loose text-[#cccccc]">
+                    <span className="font-minecraft text-[15px] leading-loose text-[#cccccc]">
                       {choice.description}
                     </span>
                   )}
@@ -104,11 +99,16 @@ export function QuizScreen({ onBack }: Props) {
           })}
         </div>
 
-        {/* つぎへボタン */}
-        <div style={{ visibility: phase === 'revealed' ? 'visible' : 'hidden' }} className="w-full">
+        {/* つぎへ／おしまいボタン */}
+        <div style={{ visibility: phase === 'revealed' ? 'visible' : 'hidden' }} className="w-full flex flex-col gap-3">
           <button className="mc-button mc-button-normal w-full py-5" onClick={next}>
             <span className="font-minecraft text-[#f0f0f0] text-[14px] tracking-wide">
               つぎへ
+            </span>
+          </button>
+          <button className="mc-button w-full py-4" onClick={onBack}>
+            <span className="font-minecraft text-[#eeeeee] text-[12px] tracking-wide">
+              おしまい
             </span>
           </button>
         </div>
