@@ -1,5 +1,6 @@
 import { TitleLogo } from './TitleLogo';
 import { PixelSprite, CREEPER_FACE, GRASS_BLOCK, DIAMOND } from './PixelSprite';
+import { BlockBorder } from './BlockBorder';
 
 type Difficulty = 'easy' | 'normal' | 'hard';
 
@@ -28,12 +29,7 @@ export function TopScreen({ onSelect }: Props) {
         }}
       />
 
-      {/* 上部：草ブロックライン */}
-      <div className="w-full z-10">
-        <div className="h-4 bg-[#5a8a3c] shadow-[0_3px_0_#3a6a22,0_6px_0_#2a4a1c]" />
-        <div className="h-3 bg-[#8b6340]" />
-        <div className="h-2 bg-[#6b4a30]" />
-      </div>
+      <BlockBorder position="top" />
 
       {/* メインコンテンツ */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-4 py-6 w-full max-w-xl">
@@ -80,12 +76,7 @@ export function TopScreen({ onSelect }: Props) {
 
       </div>
 
-      {/* 下部：土ブロックライン */}
-      <div className="w-full z-10">
-        <div className="h-2 bg-[#6b4a30]" />
-        <div className="h-3 bg-[#8b6340]" />
-        <div className="h-4 bg-[#5a8a3c] shadow-[0_-3px_0_#3a6a22,0_-6px_0_#2a4a1c]" />
-      </div>
+      <BlockBorder position="bottom" />
     </div>
   );
 }

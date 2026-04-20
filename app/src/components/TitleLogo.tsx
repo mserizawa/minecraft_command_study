@@ -11,7 +11,7 @@ export function TitleLogo() {
 
       {/* コマンドクイズ */}
       <div
-        className="logo-quiz text-center w-full -mt-1"
+        className="logo-quiz text-center w-full -mt-3"
         style={{ fontSize: 'clamp(18px, 5.5vw, 40px)' }}
       >
         コマンドクイズ

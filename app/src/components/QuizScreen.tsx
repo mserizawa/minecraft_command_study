@@ -1,6 +1,7 @@
 import { useQuiz } from '../hooks/useQuiz';
 import { useTyping } from '../hooks/useTyping';
 import { ResultOverlay } from './ResultOverlay';
+import { BlockBorder } from './BlockBorder';
 import type { Difficulty } from '../types';
 
 type Props = {
@@ -30,10 +31,7 @@ export function QuizScreen({ onBack }: Props) {
         }}
       />
 
-      {/* 上部バー */}
-      <div className="relative z-10 w-full">
-        <div className="h-2 bg-[#5a8a3c] shadow-[0_2px_0_#2a4a1c]" />
-      </div>
+      <BlockBorder position="top" />
 
       {/* メインコンテンツ */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-5 px-4 py-4 w-full max-w-xl mx-auto flex-1">
@@ -113,6 +111,8 @@ export function QuizScreen({ onBack }: Props) {
           </button>
         </div>
       </div>
+
+      <BlockBorder position="bottom" />
 
       {/* O/× オーバーレイ */}
       {phase === 'animating' && (
