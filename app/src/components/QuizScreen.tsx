@@ -36,7 +36,7 @@ export function QuizScreen({ onBack }: Props) {
       </div>
 
       {/* メインコンテンツ */}
-      <div className="relative z-10 flex flex-col items-center gap-5 px-4 py-4 w-full max-w-xl mx-auto flex-1">
+      <div className="relative z-10 flex flex-col items-center justify-center gap-5 px-4 py-4 w-full max-w-xl mx-auto flex-1">
 
         {/* お題パネル */}
         <div className="mc-panel w-full p-5">
