@@ -62,7 +62,7 @@ export function TopScreen({ onSelect }: Props) {
                 className={`mc-button ${className} w-full py-6 flex items-center justify-center`}
                 onClick={() => onSelect(id)}
               >
-                <span className="font-minecraft text-white text-[11px] leading-snug tracking-wide drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">
+                <span className="font-minecraft text-white text-[15px] leading-snug tracking-wide drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">
                   {label}
                 </span>
               </button>

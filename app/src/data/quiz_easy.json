@@ -1,0 +1,22 @@
+[
+  { "id": "q001", "description": "プレイヤーをべつの場所にいどうさせたい！", "command": "/tp" },
+  { "id": "q002", "description": "プレイヤーにアイテムをわたしたい！", "command": "/give" },
+  { "id": "q003", "description": "天気をかえたい！", "command": "/weather" },
+  { "id": "q004", "description": "ゲームモードをきりかえたい！", "command": "/gamemode" },
+  { "id": "q005", "description": "じかんをかえたい！", "command": "/time" },
+  { "id": "q006", "description": "プレイヤーにこうかをつけたい！", "command": "/effect" },
+  { "id": "q007", "description": "モンスターをよびだしたい！", "command": "/summon" },
+  { "id": "q008", "description": "ぜんいんにメッセージをおくりたい！", "command": "/say" },
+  { "id": "q009", "description": "エンティティをしょうめつさせたい！", "command": "/kill" },
+  { "id": "q010", "description": "はんいをしていしてブロックをうめたい！", "command": "/fill" },
+  { "id": "q011", "description": "プレイヤーのもちものをけしたい！", "command": "/clear" },
+  { "id": "q012", "description": "1つのばしょにブロックをおきたい！", "command": "/setblock" },
+  { "id": "q013", "description": "がめんにタイトルをひょうじしたい！", "command": "/title" },
+  { "id": "q014", "description": "とくていのプレイヤーだけにメッセージをおくりたい！", "command": "/tell" },
+  { "id": "q015", "description": "ブロックをべつのばしょにコピーしたい！", "command": "/clone" },
+  { "id": "q016", "description": "アイテムにエンチャントをつけたい！", "command": "/enchant" },
+  { "id": "q017", "description": "プレイヤーにけいけんちをあたえたい！", "command": "/experience" },
+  { "id": "q018", "description": "プレイヤーをサーバーからBANしたい！", "command": "/ban" },
+  { "id": "q019", "description": "プレイヤーをサーバーからおいだしたい！", "command": "/kick" },
+  { "id": "q020", "description": "スコアをかんりしたい！", "command": "/scoreboard" }
+]

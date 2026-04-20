@@ -139,3 +139,76 @@ body {
     inset -2px -2px 0px #222,
     inset 2px 2px 0px #888;
 }
+
+/* 回答後：正解ボタン */
+.mc-button-choice-correct {
+  background-color: #2a6a20 !important;
+  box-shadow:
+    inset -4px -4px 0px #0a3010,
+    inset 4px 4px 0px #55ff55 !important;
+  animation: correct-glow 0.8s ease-in-out infinite;
+}
+
+/* 回答後：選んだ不正解ボタン */
+.mc-button-choice-wrong-selected {
+  background-color: #6a1010 !important;
+  box-shadow:
+    inset -4px -4px 0px #2a0000,
+    inset 4px 4px 0px #ff5555 !important;
+  animation: wrong-shake 0.4s ease-out;
+}
+
+/* 回答後：選んでいない不正解ボタン */
+.mc-button-choice-wrong {
+  background-color: #333 !important;
+  box-shadow:
+    inset -4px -4px 0px #111,
+    inset 4px 4px 0px #555 !important;
+  opacity: 0.7;
+}
+
+/* ── アニメーション ─────────────────────── */
+
+@keyframes overlay-flash {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes result-symbol-correct {
+  0%   { transform: scale(0.1) rotate(-20deg); opacity: 0; }
+  35%  { transform: scale(1.4) rotate(8deg);  opacity: 1; }
+  55%  { transform: scale(0.95) rotate(-3deg); }
+  70%  { transform: scale(1.05) rotate(1deg);  opacity: 1; }
+  88%  { transform: scale(1.0);               opacity: 1; }
+  100% { transform: scale(1.05);              opacity: 0; }
+}
+
+@keyframes result-symbol-wrong {
+  0%   { transform: scale(0.1); opacity: 0; }
+  20%  { transform: scale(1.3) translateX(-12px); opacity: 1; }
+  35%  { transform: scale(1.0) translateX(10px); }
+  50%  { transform: scale(1.0) translateX(-7px); }
+  65%  { transform: scale(1.0) translateX(7px); }
+  78%  { transform: scale(1.0) translateX(0); opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes particle-fly {
+  0%   { transform: translate(0, 0) scale(1);   opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+@keyframes correct-glow {
+  0%, 100% { filter: brightness(1); }
+  50%       { filter: brightness(1.5) drop-shadow(0 0 12px #55ff55); }
+}
+
+@keyframes wrong-shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px); }
+}
