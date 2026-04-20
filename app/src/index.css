@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+.font-minecraft {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Minecraft スタイルボタン */
+.mc-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #8b8b8b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  /* 3D ボーダー風（上・左が明るく、下・右が暗く） */
+  box-shadow:
+    inset -4px -4px 0px #373737,
+    inset 4px 4px 0px #c6c6c6;
+  transition: filter 0.05s;
+}
+
+.mc-button:hover {
+  filter: brightness(1.15);
+  box-shadow:
+    inset -4px -4px 0px #373737,
+    inset 4px 4px 0px #d8d8d8;
+}
+
+.mc-button:active {
+  box-shadow:
+    inset -4px -4px 0px #c6c6c6,
+    inset 4px 4px 0px #373737;
+  filter: brightness(0.9);
+}
+
+/* 難易度別ボタンカラー */
+.mc-button-easy {
+  background-color: #5a8a3c;
+  box-shadow:
+    inset -4px -4px 0px #2a4a1c,
+    inset 4px 4px 0px #8acd5c;
+}
+.mc-button-easy:hover {
+  box-shadow:
+    inset -4px -4px 0px #2a4a1c,
+    inset 4px 4px 0px #a0dd70;
+}
+.mc-button-easy:active {
+  box-shadow:
+    inset -4px -4px 0px #8acd5c,
+    inset 4px 4px 0px #2a4a1c;
+}
+
+.mc-button-normal {
+  background-color: #b8860b;
+  box-shadow:
+    inset -4px -4px 0px #5a4000,
+    inset 4px 4px 0px #f0c040;
+}
+.mc-button-normal:hover {
+  box-shadow:
+    inset -4px -4px 0px #5a4000,
+    inset 4px 4px 0px #f8d060;
+}
+.mc-button-normal:active {
+  box-shadow:
+    inset -4px -4px 0px #f0c040,
+    inset 4px 4px 0px #5a4000;
+}
+
+.mc-button-hard {
+  background-color: #8b2222;
+  box-shadow:
+    inset -4px -4px 0px #3a0000,
+    inset 4px 4px 0px #cc5555;
+}
+.mc-button-hard:hover {
+  box-shadow:
+    inset -4px -4px 0px #3a0000,
+    inset 4px 4px 0px #e06666;
+}
+.mc-button-hard:active {
+  box-shadow:
+    inset -4px -4px 0px #cc5555,
+    inset 4px 4px 0px #3a0000;
+}
+
+/* タイトルのピクセルシャドウ */
+.mc-title-shadow {
+  text-shadow:
+    4px 4px 0px rgba(0,0,0,0.7),
+    8px 8px 0px rgba(0,0,0,0.3);
+}
+
+/* パネル */
+.mc-panel {
+  background: rgba(0, 0, 0, 0.7);
+  border: 4px solid #555;
+  box-shadow:
+    inset -2px -2px 0px #222,
+    inset 2px 2px 0px #888;
+}
