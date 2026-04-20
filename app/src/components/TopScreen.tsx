@@ -1,3 +1,5 @@
+import { TitleLogo } from './TitleLogo';
+
 type Difficulty = 'easy' | 'normal' | 'hard';
 
 type Props = {
@@ -28,7 +30,7 @@ const difficulties: { id: Difficulty; label: string; sub: string; className: str
 export function TopScreen({ onSelect }: Props) {
   return (
     <div className="relative min-h-svh flex flex-col items-center justify-between overflow-hidden bg-[#1a1a1a]">
-      {/* 背景：草ブロック風グリッドテクスチャ */}
+      {/* 背景：ブロック風グリッドテクスチャ */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -39,36 +41,24 @@ export function TopScreen({ onSelect }: Props) {
           backgroundSize: '32px 32px',
         }}
       />
-      {/* 上部：草ブロックの緑ライン */}
+      {/* 上部：草ブロックライン */}
       <div className="w-full h-3 bg-[#5a8a3c] shadow-[0_4px_0_#2a4a1c]" />
 
       {/* メインコンテンツ */}
       <div className="relative z-10 flex flex-col items-center gap-8 px-6 py-10 w-full max-w-2xl">
 
-        {/* タイトルエリア */}
-        <div className="flex flex-col items-center gap-4 mt-4">
-          {/* Java Edition バッジ */}
-          <div className="font-minecraft text-[10px] text-[#aaaaaa] bg-[#333] border-2 border-[#555] px-3 py-1 tracking-widest">
-            Java Edition
-          </div>
+        {/* タイトルロゴ */}
+        <div className="flex flex-col items-center gap-3 mt-4 w-full">
+          <TitleLogo />
 
-          {/* メインタイトル */}
-          <h1
-            className="font-minecraft text-center leading-relaxed mc-title-shadow"
-            style={{ fontSize: 'clamp(18px, 5vw, 36px)' }}
-          >
-            <span className="text-[#55FF55] block">マインクラフト</span>
-            <span className="text-[#FFFF55] block mt-2">コマンドクイズ</span>
-          </h1>
-
-          {/* サブタイトル */}
-          <p className="font-minecraft text-[#aaaaaa] text-[9px] text-center leading-loose tracking-wide mt-1">
+          {/* サブキャッチ */}
+          <p className="font-minecraft text-[#aaaaaa] text-[9px] text-center leading-loose tracking-wide mt-2">
             コマンドの知識をためそう！
           </p>
         </div>
 
         {/* 難易度選択パネル */}
-        <div className="mc-panel w-full p-6 flex flex-col gap-3 mt-2">
+        <div className="mc-panel w-full p-6 flex flex-col gap-3">
           <p className="font-minecraft text-[#FFFF55] text-[10px] text-center mb-3 tracking-wide">
             ── むずかしさをえらんでね ──
           </p>
@@ -95,7 +85,7 @@ export function TopScreen({ onSelect }: Props) {
         </p>
       </div>
 
-      {/* 下部：土ブロックの茶ライン */}
+      {/* 下部：土ブロックライン */}
       <div className="w-full">
         <div className="h-3 bg-[#5a8a3c] shadow-[0_-4px_0_#2a4a1c]" />
         <div className="h-4 bg-[#8b6340]" />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dela+Gothic+One&family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 
 * {
@@ -107,11 +107,28 @@ body {
     inset 4px 4px 0px #3a0000;
 }
 
-/* タイトルのピクセルシャドウ */
-.mc-title-shadow {
+/* MINECRAFT ロゴ：本家っぽい3D押し出し効果 */
+.logo-minecraft {
+  font-family: 'Black Han Sans', sans-serif;
+  color: #F0A010;
+  -webkit-text-stroke: 2px #2a1000;
   text-shadow:
-    4px 4px 0px rgba(0,0,0,0.7),
-    8px 8px 0px rgba(0,0,0,0.3);
+    2px 2px 0 #2a1000,
+    4px 4px 0 #1a0800,
+    6px 6px 0 #0d0400,
+    0 0 40px rgba(240, 160, 16, 0.3);
+  letter-spacing: 3px;
+}
+
+/* コマンドクイズ：ポップで明るいロゴ */
+.logo-quiz {
+  font-family: 'Dela Gothic One', sans-serif;
+  color: #FFFF55;
+  text-shadow:
+    2px 2px 0 #888800,
+    4px 4px 0 #555500,
+    0 0 30px rgba(255, 255, 85, 0.25);
+  letter-spacing: 6px;
 }
 
 /* パネル */
