@@ -8,9 +8,7 @@ type Props = {
 };
 
 export function QuizScreen({ onBack }: Props) {
-  const { round, phase, selectedId, isCorrect, score, answer, onAnimationComplete, next } =
-    useQuiz();
-
+  const { round, phase, selectedId, isCorrect, answer, onAnimationComplete, next } = useQuiz();
   const { question, choices } = round;
 
   return (
@@ -29,25 +27,20 @@ export function QuizScreen({ onBack }: Props) {
       {/* 上部バー */}
       <div className="relative z-10 w-full">
         <div className="h-2 bg-[#5a8a3c] shadow-[0_2px_0_#2a4a1c]" />
-        <div className="flex items-center justify-between px-4 py-3">
-          <button className="mc-button px-3 py-2" onClick={onBack}>
-            <span className="font-minecraft text-[10px]">← もどる</span>
+        <div className="flex items-center px-4 py-3">
+          <button className="mc-button px-4 py-3" onClick={onBack}>
+            <span className="font-minecraft text-[#eeeeee] text-[11px]">おしまい</span>
           </button>
-          <div className="mc-panel px-4 py-2">
-            <span className="font-minecraft text-[11px] text-[#FFFF55]">
-              {score.correct} / {score.total}
-            </span>
-          </div>
         </div>
       </div>
 
       {/* メインコンテンツ */}
-      <div className="relative z-10 flex flex-col items-center gap-6 px-4 py-4 w-full max-w-xl mx-auto flex-1">
+      <div className="relative z-10 flex flex-col items-center gap-5 px-4 py-4 w-full max-w-xl mx-auto flex-1">
 
         {/* お題パネル */}
         <div className="mc-panel w-full p-5">
           <p
-            className="font-minecraft text-white text-center leading-loose"
+            className="font-minecraft text-[#f0f0f0] text-center leading-loose"
             style={{ fontSize: 'clamp(13px, 3.5vw, 18px)' }}
           >
             {question.description}
@@ -62,53 +55,50 @@ export function QuizScreen({ onBack }: Props) {
 
             let btnClass = 'mc-button';
             if (showResult) {
-              if (choice.isCorrect) {
-                btnClass = 'mc-button mc-button-choice-correct';
-              } else if (isSelected) {
-                btnClass = 'mc-button mc-button-choice-wrong-selected';
-              } else {
-                btnClass = 'mc-button mc-button-choice-wrong';
-              }
+              if (choice.isCorrect)       btnClass = 'mc-button mc-button-choice-correct';
+              else if (isSelected)        btnClass = 'mc-button mc-button-choice-wrong-selected';
+              else                        btnClass = 'mc-button mc-button-choice-wrong';
             }
 
             return (
               <button
                 key={choice.id}
-                className={`${btnClass} w-full px-4 py-5 flex flex-col items-center gap-2`}
+                className={`${btnClass} w-full px-4 flex flex-col items-center justify-center gap-2`}
+                style={{ minHeight: '96px' }}
                 onClick={() => answer(choice.id)}
                 disabled={phase !== 'answering'}
               >
                 <span
-                  className="font-minecraft text-white tracking-wide"
+                  className="font-minecraft text-[#f0f0f0] tracking-wide"
                   style={{ fontSize: 'clamp(14px, 3.5vw, 20px)' }}
                 >
                   {choice.command}
                 </span>
-                {/* 不正解の説明：revealed のときだけ表示 */}
-                {phase === 'revealed' && !choice.isCorrect && (
-                  <span className="font-minecraft text-[13px] text-white/60 leading-loose mt-1">
-                    {choice.description}
-                  </span>
-                )}
+                {/* 常にスペース確保。不正解 & revealed のときだけ文字を表示 */}
+                <span
+                  className="font-minecraft text-[13px] leading-loose text-[#cccccc]"
+                  style={{
+                    visibility: phase === 'revealed' && !choice.isCorrect ? 'visible' : 'hidden',
+                  }}
+                >
+                  {choice.description}
+                </span>
               </button>
             );
           })}
         </div>
 
         {/* つぎへボタン */}
-        {phase === 'revealed' && (
-          <button
-            className="mc-button mc-button-normal w-full py-5 mt-2"
-            onClick={next}
-          >
-            <span className="font-minecraft text-white text-[14px] tracking-wide">
-              つぎへ →
+        <div style={{ visibility: phase === 'revealed' ? 'visible' : 'hidden' }} className="w-full">
+          <button className="mc-button mc-button-normal w-full py-5" onClick={next}>
+            <span className="font-minecraft text-[#f0f0f0] text-[14px] tracking-wide">
+              つぎへ
             </span>
           </button>
-        )}
+        </div>
       </div>
 
-      {/* ◯/× オーバーレイ */}
+      {/* O/× オーバーレイ */}
       {phase === 'animating' && (
         <ResultOverlay isCorrect={isCorrect} onComplete={onAnimationComplete} />
       )}

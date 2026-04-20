@@ -142,29 +142,29 @@ body {
 
 /* 回答後：正解ボタン */
 .mc-button-choice-correct {
-  background-color: #2a6a20 !important;
+  background-color: #2a7a22 !important;
   box-shadow:
-    inset -4px -4px 0px #0a3010,
-    inset 4px 4px 0px #55ff55 !important;
+    inset -4px -4px 0px #0a3a10,
+    inset 4px 4px 0px #77ff55 !important;
   animation: correct-glow 0.8s ease-in-out infinite;
 }
 
 /* 回答後：選んだ不正解ボタン */
 .mc-button-choice-wrong-selected {
-  background-color: #6a1010 !important;
+  background-color: #7a1414 !important;
   box-shadow:
     inset -4px -4px 0px #2a0000,
-    inset 4px 4px 0px #ff5555 !important;
+    inset 4px 4px 0px #ff6666 !important;
   animation: wrong-shake 0.4s ease-out;
 }
 
 /* 回答後：選んでいない不正解ボタン */
 .mc-button-choice-wrong {
-  background-color: #333 !important;
+  background-color: #3a3a3a !important;
   box-shadow:
-    inset -4px -4px 0px #111,
-    inset 4px 4px 0px #555 !important;
-  opacity: 0.7;
+    inset -4px -4px 0px #181818,
+    inset 4px 4px 0px #606060 !important;
+  opacity: 0.75;
 }
 
 /* ── アニメーション ─────────────────────── */
