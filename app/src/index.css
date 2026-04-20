@@ -212,3 +212,26 @@ body {
   60%      { transform: translateX(-5px); }
   80%      { transform: translateX(5px); }
 }
+
+/* タイピングキャレット */
+.typing-caret {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: #f0f0f0;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: caret-blink 0.6s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* 選択肢ボタンのポップアップ */
+@keyframes button-pop {
+  0%   { transform: scale(0.65) translateY(12px); opacity: 0; }
+  65%  { transform: scale(1.06) translateY(-2px); opacity: 1; }
+  100% { transform: scale(1.0)  translateY(0);    opacity: 1; }
+}

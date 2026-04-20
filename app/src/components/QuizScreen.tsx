@@ -1,4 +1,5 @@
 import { useQuiz } from '../hooks/useQuiz';
+import { useTyping } from '../hooks/useTyping';
 import { ResultOverlay } from './ResultOverlay';
 import type { Difficulty } from '../types';
 
@@ -10,6 +11,11 @@ type Props = {
 export function QuizScreen({ onBack }: Props) {
   const { round, phase, selectedId, isCorrect, answer, onAnimationComplete, next } = useQuiz();
   const { question, choices } = round;
+
+  const { displayed: typedDesc, done: typingDone } = useTyping(question.description, question.id);
+
+  // タイピング中はボタン非表示。答え合わせ後は常に表示
+  const showButtons = typingDone || phase !== 'answering';
 
   return (
     <div className="relative min-h-svh flex flex-col bg-[#1a1a1a] overflow-hidden">
@@ -43,28 +49,40 @@ export function QuizScreen({ onBack }: Props) {
             className="font-minecraft text-[#f0f0f0] text-center leading-loose"
             style={{ fontSize: 'clamp(13px, 3.5vw, 18px)' }}
           >
-            {question.description}
+            {phase === 'answering' ? typedDesc : question.description}
+            {/* タイピング中のキャレット */}
+            {phase === 'answering' && !typingDone && (
+              <span className="typing-caret" aria-hidden="true" />
+            )}
           </p>
         </div>
 
         {/* 選択肢ボタン */}
         <div className="flex flex-col gap-3 w-full">
-          {choices.map((choice) => {
+          {choices.map((choice, index) => {
             const isSelected = choice.id === selectedId;
             const showResult = phase === 'revealed' || phase === 'animating';
 
             let btnClass = 'mc-button';
             if (showResult) {
-              if (choice.isCorrect)       btnClass = 'mc-button mc-button-choice-correct';
-              else if (isSelected)        btnClass = 'mc-button mc-button-choice-wrong-selected';
-              else                        btnClass = 'mc-button mc-button-choice-wrong';
+              if (choice.isCorrect)  btnClass = 'mc-button mc-button-choice-correct';
+              else if (isSelected)   btnClass = 'mc-button mc-button-choice-wrong-selected';
+              else                   btnClass = 'mc-button mc-button-choice-wrong';
             }
 
             return (
               <button
                 key={choice.id}
                 className={`${btnClass} w-full px-4 flex items-center justify-center`}
-                style={{ height: '96px' }}
+                style={{
+                  height: '96px',
+                  opacity: showButtons ? undefined : 0,
+                  pointerEvents: showButtons ? undefined : 'none',
+                  // タイピング完了直後にポップアップ
+                  animation: showButtons && phase === 'answering'
+                    ? `button-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 130}ms both`
+                    : undefined,
+                }}
                 onClick={() => answer(choice.id)}
                 disabled={phase !== 'answering'}
               >
