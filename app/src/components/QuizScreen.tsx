@@ -100,15 +100,15 @@ export function QuizScreen({ onBack }: Props) {
         </div>
 
         {/* つぎへ／おしまいボタン */}
-        <div style={{ visibility: phase === 'revealed' ? 'visible' : 'hidden' }} className="w-full flex flex-col gap-3">
-          <button className="mc-button mc-button-normal w-full py-5" onClick={next}>
-            <span className="font-minecraft text-[#f0f0f0] text-[14px] tracking-wide">
-              つぎへ
+        <div style={{ visibility: phase === 'revealed' ? 'visible' : 'hidden' }} className="w-full flex gap-3">
+          <button className="mc-button flex-1 py-5" onClick={onBack}>
+            <span className="font-minecraft text-[#eeeeee] text-[13px] tracking-wide">
+              おしまい
             </span>
           </button>
-          <button className="mc-button w-full py-4" onClick={onBack}>
-            <span className="font-minecraft text-[#eeeeee] text-[12px] tracking-wide">
-              おしまい
+          <button className="mc-button mc-button-normal flex-1 py-5" onClick={next}>
+            <span className="font-minecraft text-[#f0f0f0] text-[14px] tracking-wide">
+              つぎへ
             </span>
           </button>
         </div>
