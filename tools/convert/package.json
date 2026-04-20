@@ -1,0 +1,12 @@
+{
+  "name": "minecraft-command-converter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "convert": "npx tsx src/index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
