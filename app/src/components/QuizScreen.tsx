@@ -63,26 +63,24 @@ export function QuizScreen({ onBack }: Props) {
             return (
               <button
                 key={choice.id}
-                className={`${btnClass} w-full px-4 flex flex-col items-center justify-center gap-2`}
-                style={{ minHeight: '96px' }}
+                className={`${btnClass} w-full px-4 flex items-center justify-center`}
+                style={{ height: '96px' }}
                 onClick={() => answer(choice.id)}
                 disabled={phase !== 'answering'}
               >
-                <span
-                  className="font-minecraft text-[#f0f0f0] tracking-wide"
-                  style={{ fontSize: 'clamp(14px, 3.5vw, 20px)' }}
-                >
-                  {choice.command}
-                </span>
-                {/* 常にスペース確保。不正解 & revealed のときだけ文字を表示 */}
-                <span
-                  className="font-minecraft text-[13px] leading-loose text-[#cccccc]"
-                  style={{
-                    visibility: phase === 'revealed' && !choice.isCorrect ? 'visible' : 'hidden',
-                  }}
-                >
-                  {choice.description}
-                </span>
+                <div className="flex flex-col items-center gap-2">
+                  <span
+                    className="font-minecraft text-[#f0f0f0] tracking-wide"
+                    style={{ fontSize: 'clamp(14px, 3.5vw, 20px)' }}
+                  >
+                    {choice.command}
+                  </span>
+                  {phase === 'revealed' && !choice.isCorrect && (
+                    <span className="font-minecraft text-[13px] leading-loose text-[#cccccc]">
+                      {choice.description}
+                    </span>
+                  )}
+                </div>
               </button>
             );
           })}
