@@ -46,7 +46,6 @@ export function QuizScreen({ onBack }: Props) {
 
         {/* お題パネル */}
         <div className="mc-panel w-full p-5">
-          <p className="font-minecraft text-[#aaaaaa] text-[9px] mb-3 tracking-wide">お題</p>
           <p
             className="font-minecraft text-white text-center leading-loose"
             style={{ fontSize: 'clamp(13px, 3.5vw, 18px)' }}
@@ -87,8 +86,8 @@ export function QuizScreen({ onBack }: Props) {
                 </span>
                 {/* 不正解の説明：revealed のときだけ表示 */}
                 {phase === 'revealed' && !choice.isCorrect && (
-                  <span className="font-minecraft text-[10px] text-white/60 leading-loose mt-1">
-                    → {choice.description}
+                  <span className="font-minecraft text-[13px] text-white/60 leading-loose mt-1">
+                    {choice.description}
                   </span>
                 )}
               </button>

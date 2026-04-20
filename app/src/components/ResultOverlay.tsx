@@ -33,7 +33,7 @@ export function ResultOverlay({ isCorrect, onComplete }: Props) {
   );
 
   const bgColor = isCorrect ? 'rgba(20, 80, 20, 0.75)' : 'rgba(80, 10, 10, 0.75)';
-  const symbol = isCorrect ? '◯' : '×';
+  const symbol = isCorrect ? 'o' : '×';
   const symbolColor = isCorrect ? '#55FF55' : '#FF5555';
   const symbolAnim = isCorrect ? 'result-symbol-correct' : 'result-symbol-wrong';
 
