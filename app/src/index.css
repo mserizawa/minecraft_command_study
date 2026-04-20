@@ -229,6 +229,12 @@ body {
   50%       { opacity: 0; }
 }
 
+/* スプライトふわふわ浮遊 */
+@keyframes sprite-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
 /* 選択肢ボタンのポップアップ */
 @keyframes button-pop {
   0%   { transform: scale(0.65) translateY(12px); opacity: 0; }

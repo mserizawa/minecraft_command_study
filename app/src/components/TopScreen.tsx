@@ -41,12 +41,20 @@ export function TopScreen({ onSelect }: Props) {
         {/* タイトルロゴ */}
         <TitleLogo />
 
-        {/* ピクセルアート装飾：クリーパー + ダイヤ + クリーパー */}
+        {/* ピクセルアート装飾：ふわふわ浮遊（位相をずらして自然に） */}
         <div className="flex items-end justify-center gap-6 mt-2">
-          <PixelSprite {...GRASS_BLOCK} scale={8} />
-          <PixelSprite {...CREEPER_FACE} scale={12} />
-          <PixelSprite {...DIAMOND} scale={9} />
-          <PixelSprite {...GRASS_BLOCK} scale={8} />
+          <div style={{ animation: 'sprite-float 3.2s ease-in-out 0.0s infinite' }}>
+            <PixelSprite {...GRASS_BLOCK} scale={8} />
+          </div>
+          <div style={{ animation: 'sprite-float 2.6s ease-in-out 0.7s infinite' }}>
+            <PixelSprite {...CREEPER_FACE} scale={12} />
+          </div>
+          <div style={{ animation: 'sprite-float 3.5s ease-in-out 1.3s infinite' }}>
+            <PixelSprite {...DIAMOND} scale={9} />
+          </div>
+          <div style={{ animation: 'sprite-float 2.9s ease-in-out 0.4s infinite' }}>
+            <PixelSprite {...GRASS_BLOCK} scale={8} />
+          </div>
         </div>
 
         {/* 難易度選択パネル */}
@@ -70,9 +78,6 @@ export function TopScreen({ onSelect }: Props) {
           </div>
         </div>
 
-        <p className="font-minecraft text-[#444] text-[7px] text-center">
-          Java Edition 1.21 対応
-        </p>
       </div>
 
       {/* 下部：土ブロックライン */}
